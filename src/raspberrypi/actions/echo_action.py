@@ -1,18 +1,20 @@
 from awscrt import mqtt
 from actions import Action
 import json
+import logging
+log = logging.getLogger(__name__)
 
 class Echo_Action(Action):
     def __init__(self, mqtt_connection):
         super().__init__()
         self.mqtt = mqtt_connection
 
-    def execute(self,topic, payload, dup, qos, retain, **kwargs):
+    def execute(self, topic, payload, dup, qos, retain, **kwargs):
         msg = json.loads(payload)
-        print(f"Received message on {topic}: {msg}")
-        print(f"Republishing same message ...")
+        log.info(f"Received message on {topic}: {msg}")
+        log.info(f"Republishing same message ...")
         self.mqtt.publish(
-            topic="/pi/echo",
+            topic="pi/echo",
             payload=payload,
             qos=mqtt.QoS.AT_LEAST_ONCE)
-        print(f"Done")
+        log.info(f"Done")

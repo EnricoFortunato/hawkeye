@@ -1,3 +1,8 @@
+import logging
+logging.basicConfig(filename='/home/pi/Documents/hawkeye/logs/log.log', filemode='a', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(module)s:%(message)s', datefmt='%m/%d/%Y %I:%M:%S')
+log = logging.getLogger(__name__)
+log.info("Started execution")
+
 import argparse
 from awscrt import io, mqtt, auth, http
 from awsiot import mqtt_connection_builder
@@ -8,6 +13,7 @@ from uuid import uuid4
 import json
 import os
 from events import Echo, Snap
+
 
 # coded configurations
 message = "I am home"

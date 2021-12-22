@@ -2,28 +2,40 @@ import logging
 import boto3
 from botocore.exceptions import ClientError
 import os
+from datetime import datetime
+
+# settings
+bucket = "hawkeye-data-storage"
+
+# log
+levels = {
+    'Debug': logging.DEBUG,
+    'Info': logging.INFO,
+    'Warning': logging.WARNING,
+    'Error': logging.ERROR
+}
+
+LOGGING_LEVEL = 'Debug'
+logging.basicConfig(filename='/home/pi/Documents/hawkeye/logs/log.log', filemode='a', level=levels[LOGGING_LEVEL], format='%(asctime)s - %(levelname)s - %(module)s:%(message)s', datefmt='%m/%d/%Y %I:%M:%S')
+log = logging.getLogger(__name__)
+log.info("Started execution")
 
 
-def upload_file(file_name, bucket, object_name=None):
-    """Upload a file to an S3 bucket
-
-    :param file_name: File to upload
-    :param bucket: Bucket to upload to
-    :param object_name: S3 object name. If not specified then file_name is used
-    :return: True if file was uploaded, else False
-    """
-
-    # If S3 object_name was not specified, use file_name
-    if object_name is None:
-        object_name = os.path.basename(file_name)
-
-    # Upload the file
-    s3_client = boto3.client('s3')
+def upload_file(BUCKET, data):
+    # Upload a file to our S3 bucket
     try:
-        response = s3_client.upload_file(file_name, bucket, object_name)
-    except ClientError as e:
-        logging.error(e)
-        return False
-    return True
+        s3 = boto3.resource('s3')
+        bucket = s3.Bucket(BUCKET)
+        filename = '/pi/snip/' + str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) + '.json'
+        bucket.put_object(Body=data,Key=filename)
+        url = f'https://{BUCKET}.s3.amazonaws.com/{filename}'
 
-upload_file("test-image.png","hawkeye-data-storage","test-image.png")
+    except Exception as e:
+        log.exception("Failed to upload to s3")
+        url = 'Failed to capture image'
+
+    finally:
+        return url
+
+url = upload_file(bucket,"test-image.png")
+print(url)
