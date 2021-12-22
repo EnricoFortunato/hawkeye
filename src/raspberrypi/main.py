@@ -7,7 +7,7 @@ import time
 from uuid import uuid4
 import json
 import os
-from events import Echo
+from events import Echo, Snap
 
 # coded configurations
 message = "I am home"
@@ -106,6 +106,7 @@ class Event_Handler():
 my_handler = Event_Handler()
 my_handler.establish_mqtt_connection()
 my_handler.add_event(Echo,my_handler.mqtt_connection)
+my_handler.add_event(Snap,my_handler.mqtt_connection)
 
 keep_running = True
 
