@@ -1,2 +1,6 @@
 src/raspberrypi/certs
+<<<<<<< HEAD
 *.pyc
+=======
+logs
+>>>>>>> origin
