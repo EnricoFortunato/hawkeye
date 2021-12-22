@@ -1,0 +1,1 @@
+python3 pubsub.py --topic topic_1 --root-ca ~/Documents/hawkeye/src/raspberrypi/certs/Amazon-root-CA-1.pem --cert ~/Documents/hawkeye/src/raspberrypi/certs/device.pem.crt --key ~/Documents/hawkeye/src/raspberrypi/certs/private.pem.key --endpoint alxgtfe3owebq-ats.iot.eu-west-1.amazonaws.com

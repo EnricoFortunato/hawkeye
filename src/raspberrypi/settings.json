@@ -1,0 +1,6 @@
+{
+    "root-ca" : "/home/pi/Documents/hawkeye/src/raspberrypi/certs/Amazon-root-CA-1.pem",
+    "cert" : "/home/pi/Documents/hawkeye/src/raspberrypi/certs/device.pem.crt",
+    "key" : "/home/pi/Documents/hawkeye/src/raspberrypi/certs/private.pem.key",
+    "end-point" : "alxgtfe3owebq-ats.iot.eu-west-1.amazonaws.com"
+}
