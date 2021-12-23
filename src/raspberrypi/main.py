@@ -1,5 +1,6 @@
 import logging
-logging.basicConfig(filename='/home/pi/Documents/hawkeye/logs/log.log', filemode='a', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(module)s:%(message)s', datefmt='%m/%d/%Y %I:%M:%S')
+logging_level = logging.WARNING
+logging.basicConfig(filename='/home/pi/Documents/hawkeye/logs/log.log', filemode='a', level=logging_level, format='%(asctime)s - %(levelname)s - %(module)s:%(message)s', datefmt='%m/%d/%Y %I:%M:%S')
 log = logging.getLogger(__name__)
 log.info("Started execution")
 
@@ -12,7 +13,7 @@ import time
 from uuid import uuid4
 import json
 import os
-from events import Echo, Snap
+from events import Echo_Event, Snap_Event
 
 
 # coded configurations
@@ -111,8 +112,8 @@ class Event_Handler():
 
 my_handler = Event_Handler()
 my_handler.establish_mqtt_connection()
-my_handler.add_event(Echo,my_handler.mqtt_connection)
-my_handler.add_event(Snap,my_handler.mqtt_connection)
+my_handler.add_event(Echo_Event,my_handler.mqtt_connection)
+my_handler.add_event(Snap_Event,my_handler.mqtt_connection)
 
 keep_running = True
 

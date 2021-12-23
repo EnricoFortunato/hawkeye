@@ -1,3 +1,3 @@
 from events.event import Event
-from events.echo import Echo
-from events.snap import Snap
+from events.echo_event import Echo_Event
+from events.snap_event import Snap_Event
