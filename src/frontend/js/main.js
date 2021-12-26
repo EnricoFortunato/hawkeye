@@ -1,24 +1,20 @@
-const myForm = document.querySelector('#my-form');
-const nameInput = document.querySelector('#name');
-const emailInput = document.querySelector('#email');
-const msg = document.querySelector('.msg');
-const userList = document.querySelector('#users');
+const snap_btn = document.querySelector('#snap-button');
+const snap_img = document.querySelector('#snap-img');
+const images = [
+    "https://galeriemagazine.com/wp-content/uploads/2019/01/Dining_3-1920x1200.jpg",
+    "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1253i215%2F1v9t6ecteh5c4aa1fnbvzpwby5i215&option=N&h=472&permitphotoenlargement=false"
+]
+let counter = 0
 
-myForm.addEventListener('submit', onSubmit);
+snap_btn.addEventListener('click', onClick);
 
-function onSubmit(e) {
+snap_img.firstElementChild.src = images[counter]
+
+function onClick(e) {
     e.preventDefault();
-    
-    if(nameInput.value=== '' || emailInput.value === '') {
-        msg.classList.add('error')
-        msg.innerHTML = 'Please enter all fields'
-
-        setTimeout(() => msg.remove(), 3000)
-    } else {
-        console.log('success');
-        const li = document.createElement("li")
-        //li.innerHTML = `Name: ${nameInput.value} Email: ${emailInput.value}`
-        li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`))
-        userList.appendChild(li)
-    }
+    counter = (counter + 1) %2
+    snap_img.firstElementChild.src = images[counter]
 }
+
+// setTimeout(() => msg.remove(), 3000)
+
