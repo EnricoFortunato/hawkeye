@@ -14,6 +14,7 @@ function onClick(e) {
     e.preventDefault();
     counter = (counter + 1) %2
     snap_img.firstElementChild.src = images[counter]
+    window.location.replace("login.html")
 }
 
 // setTimeout(() => msg.remove(), 3000)
