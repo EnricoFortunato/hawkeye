@@ -1,3 +1,11 @@
+if (typeof(sessionStorage.accessToken)==='undefined') {
+    window.location.replace("login.html")
+}
+
+
+// Todo: Add validation of the token stored in the browser
+console.log(sessionStorage.getItem("accessToken"));
+
 const snap_btn = document.querySelector('#snap-button');
 const snap_img = document.querySelector('#snap-img');
 const images = [
@@ -14,8 +22,5 @@ function onClick(e) {
     e.preventDefault();
     counter = (counter + 1) %2
     snap_img.firstElementChild.src = images[counter]
-    window.location.replace("login.html")
 }
-
-// setTimeout(() => msg.remove(), 3000)
 

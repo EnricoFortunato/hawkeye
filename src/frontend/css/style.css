@@ -4,90 +4,156 @@
     box-sizing: border-box;
   }
   
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-  }
-  
-  ul {
-    list-style: none;
-  }
-  
-  ul li {
-    padding: 5px;
-    background: #f4f4f4;
-    margin: 5px 0;
-  }
-  
-  header {
-    background: #f4f4f4;
+body {font-family: Arial, Helvetica, sans-serif; color: #0C1618}
+form {border: 3px solid #f1f1f1;}
+
+a {
+    color : #4A6FA5
+}
+
+header {
+    background: #4A6FA5;
     padding: 1rem;
     text-align: center;
+    margin-bottom: 3em;
+    text-transform: uppercase;
   }
-  
-  .container {
-    margin: auto;
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #D7816A;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  padding: 5px;
+  background: #f4f4f4;
+  margin: 5px 0;
+}
+
+.container {
     width: 500px;
-    overflow: hidden;
-    padding: 3rem 2rem;
-  }
-  
-  #my-form {
-    padding: 2rem;
-    background: #f4f4f4;
-  }
-  
-  #my-form label {
-    display: block;
-  }
-  
-  #my-form input[type='text'] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  #snap-button {
-    display: block;
-    width: 50%;
-    padding: 10px 15px;
-    border: 0;
-    background: #333;
-    color: #fff;
-    border-radius: 5px;
-    margin: auto;
-    margin-bottom: 20px;
-  }
-  
-  #snap-button:hover {
-    background: #444;
-  }
+  padding: 16px;
+  margin: auto
+}
 
-  #snap-img{
-    overflow: hidden;
-  }
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #4A6FA5;
+}
 
-  #snap-img img{
-    object-fit: contain;
-    overflow: hidden;
-    max-width:100%
-  }
-  
-  .bg-dark {
-    background: #333;
-    color: #fff;
-  }
-  
-  .error {
-    background: orangered;
-    color: #fff;
-    padding: 5px;
-    margin: 5px;
-  }
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
 
-  .disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+.bg-dark {
+  background: #333;
+  color: #fff;
+}
+
+.error {
+  background: orangered;
+  color: #fff;
+  padding: 5px;
+  margin: 5px;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+img.avatar {
+  width: 200px;
+  border-radius: 0%;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+#options-box {
+    background-color: #BAD1CD;
+    margin-top: 2em;
+    margin-bottom: 5em;
+    padding: auto;
+}
+
+#my-form {
+  padding: 2rem;
+  background: #f4f4f4;
+}
+
+#my-form label {
+  display: block;
+}
+
+#my-form input[type='text'] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#snap-button {
+  display: block;
+  width: 50%;
+  padding: 10px 15px;
+  border: 0;
+  background: #333;
+  color: #fff;
+  border-radius: 5px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+#snap-button:hover {
+  background: #444;
+}
+
+#snap-img{
+  overflow: hidden;
+}
+
+#snap-img img{
+  object-fit: contain;
+  overflow: hidden;
+  max-width:100%
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
   }
+  .cancelbtn {
+     width: 100%;
+  }
+}
