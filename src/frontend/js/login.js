@@ -29,11 +29,12 @@ function onSubmit(evt,data){
 
     cognitoUser.authenticateUser(authenticationDetails, {
         onSuccess: function(result) {
-
+            const res = result;
             const accessToken = result.getAccessToken().getJwtToken();
             console.log(accessToken);
             sessionStorage.setItem("accessToken",accessToken)
             window.location.replace('./index.html')
+            
     
             // //POTENTIAL: Region needs to be set if not already set previously elsewhere.
             // AWS.config.region = _config.cognito.region;

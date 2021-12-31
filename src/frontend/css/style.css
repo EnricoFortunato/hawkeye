@@ -81,10 +81,10 @@ ul li {
   margin: 5px;
 }
 
-.disabled {
+/* .disabled {
   opacity: 0.6;
   cursor: not-allowed;
-}
+} */
 
 img.avatar {
   width: 200px;
@@ -134,6 +134,12 @@ span.psw {
 
 #snap-button:hover {
   background: #444;
+}
+
+#snap-button:disabled,
+#snap-button[disabled]{
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 #snap-img{
