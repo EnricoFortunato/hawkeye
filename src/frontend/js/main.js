@@ -7,7 +7,7 @@ console.log(params);
 
 
 if (typeof(params)==='undefined') {
-    const cognito_auth_uri = `https://hawkeye.auth.eu-west-1.amazoncognito.com/login?client_id=${_config.window.clientId}&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=`
+    const cognito_auth_uri = `https://hawkeye.auth.eu-west-1.amazoncognito.com/login?client_id=${_config.cognito.clientId}&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=`
     const relocation_uri = cognito_auth_uri + encodeURIComponent(loc)
     console.log(relocation_uri)
     window.location.replace(relocation_uri)
