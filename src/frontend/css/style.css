@@ -121,19 +121,23 @@ span.psw {
 }
 
 #snap-button {
+  font-weight: bold;
   display: block;
   width: 50%;
   padding: 10px 15px;
   border: 0;
-  background: #333;
   color: #fff;
+  background-color: #D7816A;
+  border-color: #b3573e;
   border-radius: 5px;
   margin: auto;
   margin-bottom: 20px;
 }
 
 #snap-button:hover {
-  background: #444;
+  color: #fff;
+  background-color: #d86141;
+  border-color: #b3573e;
 }
 
 #snap-button:disabled,
