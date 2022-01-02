@@ -30,7 +30,7 @@ class Snap_Action(Action):
             url, upload_result = self.upload_file(self.bucket,self.temp_pic)
             msg["location"] = url
             if upload_result == "success":
-                #self.clean_snap()
+                self.clean_snap()
                 pass
 
         # publish result
