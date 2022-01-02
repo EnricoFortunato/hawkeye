@@ -12,7 +12,7 @@ log = logging.getLogger(__name__)
 
 class Snap_Action(Action):
     bucket = "hawkeye-data-storage"
-    temp_pic = "~/Documents/hawkeye/src/raspberrypi/actions/temp.jpg"
+    temp_pic = "/home/pi/Documents/hawkeye/src/raspberrypi/actions/temp.jpg"
 
     def __init__(self, mqtt_connection):
         super().__init__()
@@ -30,7 +30,8 @@ class Snap_Action(Action):
             url, upload_result = self.upload_file(self.bucket,self.temp_pic)
             msg["location"] = url
             if upload_result == "success":
-                self.clean_snap()
+                #self.clean_snap()
+                pass
 
         # publish result
         self.mqtt.publish(
@@ -38,14 +39,14 @@ class Snap_Action(Action):
             payload=json.dumps(msg),
             qos=mqtt.QoS.AT_LEAST_ONCE)
 
-    def upload_file(self, BUCKET, data):
+    def upload_file(self, BUCKET, file):
         # Upload a file to our S3 bucket
         try:
             s3 = boto3.resource('s3')
             bucket = s3.Bucket(BUCKET)
-            filename = 'pi/snap/' + str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) + '.json'
-            bucket.put_object(Body=data,Key=filename)
-            url = f'https://{BUCKET}.s3.amazonaws.com/{filename}'
+            key = 'pi/snap/' + str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) + '.jpg'
+            bucket.upload_file(file,key)
+            url = f'https://{BUCKET}.s3.amazonaws.com/{key}'
             result = "success"
             log.info(f"Loaded snap request to {url}")
 
