@@ -4,20 +4,24 @@
     box-sizing: border-box;
   }
   
-body {font-family: Arial, Helvetica, sans-serif; color: #0C1618}
+body {
+  font-family: Arial, Helvetica, sans-serif; 
+  color: #0C1618;
+  background-color: rgb(235, 235, 235);
+  }
+
 form {border: 3px solid #f1f1f1;}
 
 a {
-    color : #4A6FA5
+  color : #4A6FA5
 }
 
 header {
-    background: #4A6FA5;
-    padding: 1rem;
-    text-align: center;
-    margin-bottom: 3em;
-    text-transform: uppercase;
-  }
+  background: #4A6FA5;
+  text-align: center;
+  margin-bottom: 3em;
+  text-transform: uppercase;
+}
 
 input[type=text], input[type=password] {
   width: 100%;
@@ -53,9 +57,11 @@ ul li {
 }
 
 .container {
-    width: 500px;
+  width: 500px;
   padding: 16px;
-  margin: auto
+  margin: auto;
+  background-color: #f3f3f3;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .cancelbtn {
@@ -96,11 +102,16 @@ span.psw {
   padding-top: 16px;
 }
 
+#my-header {
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 #options-box {
-    background-color: #BAD1CD;
-    margin-top: 2em;
-    margin-bottom: 5em;
-    padding: auto;
+  background-color: #BAD1CD;
+  margin-top: 2em;
+  margin-bottom: 5em;
+  padding: auto;
 }
 
 #my-form {
@@ -132,6 +143,7 @@ span.psw {
   border-radius: 5px;
   margin: auto;
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 #snap-button:hover {

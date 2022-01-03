@@ -3,4 +3,4 @@ src/raspberrypi/certs
 logs
 *.png
 !src/frontend/img/user-login.png
-src/frontend/utils/
+src/frontend/utils
