@@ -19,7 +19,7 @@ from events import Echo_Event, Snap_Event
 # coded configurations
 message = "I am home"
 home_topic = "pi/home"
-client_id= "raspberry"
+client_id= "raspberrypi-"+str(uuid4())
 counter = 5
 
 # loaded configurations
