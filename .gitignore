@@ -4,4 +4,4 @@ src/raspberrypi/example
 logs
 *.png
 !src/frontend/img/user-login.png
-src/frontend/utils/
+src/frontend/utils
