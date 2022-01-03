@@ -2,3 +2,5 @@ src/raspberrypi/certs
 *.pyc
 logs
 *.png
+!src/frontend/img/user-login.png
+src/frontend/utils/
