@@ -1,4 +1,5 @@
 src/raspberrypi/certs
+src/raspberrypi/example
 *.pyc
 logs
 *.png
