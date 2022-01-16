@@ -23,6 +23,7 @@ class Snap_Action(Action):
 
         # take a snap
         result = self.take_snap()
+        print(result)
         msg = {"snap result": result}
 
         # load to s3 if success
@@ -44,7 +45,7 @@ class Snap_Action(Action):
         try:
             s3 = boto3.resource('s3')
             bucket = s3.Bucket(BUCKET)
-            key = 'pi/snap/' + str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) + '.jpg'
+            key = 'pi/snap/' + str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) + '.png'
             bucket.upload_file(file,key)
             url = f'https://{BUCKET}.s3.amazonaws.com/{key}'
             result = "success"
@@ -60,7 +61,7 @@ class Snap_Action(Action):
 
     def take_snap(self):
         try:
-            cmd = ["libcamera-still -o " + self.temp_pic]
+            cmd = ["libcamera-still  --immediate -t 100 -q 80 -o" + self.temp_pic]
             subprocess.run(cmd, shell=True)
             picture_result = "success"
         except Exception as e:
@@ -73,5 +74,3 @@ class Snap_Action(Action):
         # remove the temp picture after uploading
         cmd = ["rm " + self.temp_pic]
         subprocess.run(cmd, shell=True)
-
-
