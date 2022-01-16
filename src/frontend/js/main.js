@@ -117,4 +117,4 @@ function onClick(e) {
 
 setInterval(() => {
     refresh_image(s3);
-}, 1000);
+}, 10000);
