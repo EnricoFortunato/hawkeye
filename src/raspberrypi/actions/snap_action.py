@@ -12,7 +12,7 @@ log = logging.getLogger(__name__)
 
 class Snap_Action(Action):
     bucket = "hawkeye-data-storage"
-    temp_pic = "/home/pi/Documents/hawkeye/src/raspberrypi/actions/temp.jpg"
+    temp_pic = "/home/pi/Documents/hawkeye/src/raspberrypi/actions/temp.png"
 
     def __init__(self, mqtt_connection):
         super().__init__()

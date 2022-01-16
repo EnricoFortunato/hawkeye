@@ -118,8 +118,8 @@ my_handler.add_event(Snap_Event,my_handler.mqtt_connection)
 keep_running = True
 
 while keep_running:
-    keyboard = input()
-    if keyboard == "stop":
+    keyboard = input(":")
+    if keyboard == "q" or keyboard == "quit" or keyboard=="exit":
         keep_running = False
     else:
         time.sleep(1)

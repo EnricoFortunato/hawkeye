@@ -24,7 +24,7 @@ else {
 
 // Authentication
 let s3;
-const key = 'frontend/refresh-image/refresh_image.jpg';
+const key = 'frontend/refresh-image/refresh_image.png';
 
 const cognitoidentity = new AWS.CognitoIdentity({apiVersion: '2014-06-30',region:'eu-west-1'});
 
@@ -117,4 +117,4 @@ function onClick(e) {
 
 setInterval(() => {
     refresh_image(s3);
-}, 1000);
+}, 10000);
